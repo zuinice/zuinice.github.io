@@ -5806,7 +5806,8 @@ button.botui-actions-buttons-button {
 }
 .logolink a:hover .sakurasono {
     background-color:orange;
-    color:#fff
+    color:#fff;
+    display: none;
 }
 .logolink a:hover .shironeko,.logolink a:hover rt {
     color:orange
@@ -5827,7 +5828,8 @@ button.botui-actions-buttons-button {
     font-size:25px;
     border-radius:9px;
     padding-bottom:2px;
-    padding-top:5px
+    padding-top:5px;
+    display: none;
 }
 .logolink.moe-mashiro .shironeko {
     margin-left:-5px
