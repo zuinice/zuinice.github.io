@@ -5801,7 +5801,8 @@ button.botui-actions-buttons-button {
     padding-bottom:0;
     padding-top:1px;
     text-size-adjust:100%;
-    width:auto
+    width:auto;
+    display: none;
 }
 .logolink a:hover .sakurasono {
     background-color:orange;
