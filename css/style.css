@@ -3947,8 +3947,7 @@ li.feature-2 {
     }
     .header-info {
         width: 90% !important;
-        word-wrap:break-word; 
-        word-break:break-all;
+        white-space: nowrap;
     }
     .header-info:before {
         top: 98px !important;
