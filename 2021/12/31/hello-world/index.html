@@ -36,8 +36,10 @@
   mashiro_option.site_name = "liujj";
   mashiro_option.author_name = "liujj";
   mashiro_option.site_url = "";
-  mashiro_option.v_appId = "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz";
-  mashiro_option.v_appKey = "mgOpfzbkHYqU92CV4IDlAUHQ";
+  // mashiro_option.v_appId = "";
+  // mashiro_option.v_appKey = "";
+  mashiro_option.v_appId = "";
+  mashiro_option.v_appKey = "";
   mashiro_option.mathjax = "0";
   mashiro_option.qq_api_url = "https://api.mashiro.top/qqinfo/"; 
   mashiro_option.qq_avatar_api_url = "https://api.mashiro.top/qqinfo/";
@@ -430,15 +432,15 @@
         
         
       </section>
-      
+      <!-- 
 <div id="vcomments"></div>
 <script>
   window.onload = function(){
       var valine = new Valine();
       valine.init({
         el: '#vcomments',
-        appId: "GyC3NzMvd0hT9Yyd2hYIC0MN-gzGzoHsz",
-        appKey: "mgOpfzbkHYqU92CV4IDlAUHQ",
+        appId: "",
+        appKey: "",
         path: window.location.pathname,
         placeholder: "你是我一生只会遇见一次的惊喜 ..."
       })
@@ -446,6 +448,104 @@
 </script>
 
 
+ -->
+
+ 
+ <div id="vcomments"></div>
+ <!-- 先引入样式,从footer提前 -->
+ <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+ <!-- 评论框美化 -->
+ <style>
+     .v .vwrap{padding: 0 0 44px;}
+     .v .veditor{min-height: 10rem;
+         background-image: url(https://cdn.jsdelivr.net/gh/cungudafa/img/images/girls2.png);
+         background-size: contain;
+         background-repeat: no-repeat;
+         background-position: right;
+         background-color: rgba(255,255,255,0);
+         resize: none;}
+     .v .vwrap .vedit{padding-top:20px;}
+     .v .vwrap .vheader{width: 80%;bottom:0;position: absolute;background: #fff7f7f7; height: 37px;}
+     .v .vinput{padding:5px 15px; text-align: center;}
+     .v .vwrap .vheader .vinput{border-bottom:0px}
+     .v .vwrap .vedit .vctrl{margin-top:-44px;position:absolute;margin-right:-3px;}
+     .v .vwrap .vcontrol{position:absolute;right:0;bottom:0;width:20%;padding-top:0px;}
+     .v .vwrap .vcontrol .col.col-20,
+     .v .vwrap .vedit .vctrl span.vpreview-btn{display: none}
+     .v .vwrap .vcontrol .col.col-80{width: 100%;}
+     .v .vbtn.vsubmit{border-radius: 0;padding: 0;color: #fff;height: 37px; line-height: 37px;width:100%;border: none;background:#ff9999;}
+     .v .vlist .vcard .vhead .vsys{background: #fff7f7f7;}
+     @media screen and (max-width: 520px){
+     .v .vwrap .vheader .vinput{width: 33.33%;padding:10px 5px;}
+     }
+     input[type=email]:focus{
+        outline: 1px solid #df6d99;
+     }
+     input[name=nick]:focus{
+        outline: 1px solid #df6d99;
+        margin-left: 1px;
+     }
+     
+ </style>
+ <script>
+     new Valine({
+         el: '#vcomments',
+         appId: "y4BhfI6kbot1SXL5VVwKTbjy-gzGzoHsz",
+         appKey: "odOSbB9LfiPFn9F6cxtq9AbJ",
+         path: window.location.pathname,
+         notify: false,
+         verify: true,
+         avatar: 'monsterid',//小怪物头像
+         placeholder: "你是我一生只会遇见一次的惊喜 ..."  
+     });
+     //   自定义邮箱审核规则
+     document.body.addEventListener('click', function(e) {
+         if (e.target.classList.contains('vsubmit')) {
+             const email = document.querySelector('input[type=email]');
+             const nick = document.querySelector('input[name=nick]');
+             const reg = /^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+             if (!email.value || !nick.value || !reg.test(email.value)) {
+                 const str = `<div class="valert text-center"><div class="vtext">请填写正确的昵称和邮箱！</div></div>`;
+                 const vmark = document.querySelector('.vmark');
+                 vmark.innerHTML = str;
+                 vmark.style.display = 'block';
+ 
+                 setTimeout(function() {
+                     vmark.style.display = 'none';
+                     vmark.innerHTML = '';
+                 }, 2500);
+             }
+         }
+     });
+     // 点击回复直接评论,官方版本点击回复时都是跳回到页面上方的评论框进行回复，评论框是固定不动的
+     // 参考https://immmmm.com/valine-diy
+     $(document).ready(function(){
+         $('.vemoji-btn').text('😘');
+         $("#vcomments").on('click', 'span.vat',function(){
+             $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+             $('textarea#veditor').focus();
+         })
+     })
+     $('.vemoji-btn').addClass("emjo")
+     
+ </script>
+ <!-- 今日诗词：随机返回一句古诗词名句的接口，宅到用来做 Valine 的 placeholder 显示内容 -->
+<!--  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+ <script type="text/javascript">
+     jinrishici.load(function(result) {
+         var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author
+         document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
+     });
+ </script> -->
+ <style>
+   .emjo{
+    font-size: 24px;
+    height: 52px;
+    width:  40px;
+    overflow: hidden;
+   }
+ </style>
+ 
 
 
       <section class="author-profile">
@@ -859,5 +959,5 @@ $(document).ready(function() {
     })
   });
 </script>
-</body>
+<script src="/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2d_models/assets/assets/haru01.model.json"},"display":{"position":"left","width":300,"height":400},"mobile":{"show":true},"react":{"opacity":0.8},"log":false});</script></body>
 </html>
