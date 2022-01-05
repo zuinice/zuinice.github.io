@@ -3947,7 +3947,6 @@ li.feature-2 {
     }
     .header-info {
         width: 90% !important;
-        white-space: nowrap;
     }
     .header-info:before {
         top: 98px !important;
